@@ -1,5 +1,7 @@
 # NeoBackup
 
+> **This project is 100% AI-generated with zero human-written code.**
+
 A server-only backup mod for NeoForge 1.21.1
 
 ## Features
@@ -52,4 +54,4 @@ The compiled JAR will be in `build/libs/`.
 
 ---
 
-> **This project is 100% AI-generated code with zero human-written code.**
+*Built entirely by AI. Zero human code. Full human creativity.*
