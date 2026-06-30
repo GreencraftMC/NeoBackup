@@ -1,0 +1,30 @@
+# NeoBackup Configuration
+# Crontab expression for backup schedule.
+# Format: minute hour dayOfMonth month dayOfWeek
+# Examples:
+#   '0 2 * * *'     - Daily at 2:00 AM
+#   '0 */6 * * *'   - Every 6 hours
+#   '0 0 * * 0'     - Every Sunday at midnight
+#   '30 4 * * 1-5'  - Weekdays at 4:30 AM
+#   '0 0 1 * *'     - First day of each month
+cronExpression: "0 2 * * *"
+
+# Compression method: 'zstd' or 'zip'
+# Zstd is faster and more efficient, but may not be supported on all platforms.
+compressionMethod: "zip"
+
+# Backup storage path. Relative to server directory or absolute path.
+backupPath: "./backups"
+
+# Skip backup if no players have joined since last backup
+skipIfNoPlayers: true
+
+# List of file/folder names to exclude from backup
+excludedFiles:
+  - session.lock
+
+# Maximum number of backups to keep (0 = unlimited)
+maxBackupCount: 0
+
+# Maximum total backup directory size in GB (0 = unlimited)
+maxBackupSizeGB: 0

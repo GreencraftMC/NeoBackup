@@ -1,0 +1,61 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+def neo_version = '21.0.167'
+def mod_id = 'neobackup'
+def mod_group_id = 'ms.maomer.neobackup'
+
+group = mod_group_id
+
+base {
+    archivesName = 'NeoBackup-NeoForge'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+}
+
+dependencies {
+    implementation project(':common')
+    implementation "net.neoforged:neoforge:${neo_version}"
+    implementation jarJar('com.cronutils:cron-utils:9.2.0')
+    implementation jarJar('com.github.luben:zstd-jni:1.5.5-7')
+    implementation jarJar('org.apache.commons:commons-compress:1.26.0')
+    implementation jarJar('commons-codec:commons-codec:1.16.0')
+}
+
+neoForge {
+    version = neo_version
+    runs {
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            jarJar {
+                enabled = true
+            }
+        }
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    from project(':common').sourceSets.main.output
+    manifest {
+        attributes 'Enable-Native-Access': 'ALL-UNNAMED'
+    }
+}

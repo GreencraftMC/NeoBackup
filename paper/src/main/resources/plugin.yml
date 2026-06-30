@@ -1,0 +1,10 @@
+name: NeoBackup
+version: 1.0.0
+main: ms.maomer.neobackup.NeoBackup
+api-version: '1.26'
+author: maomer
+description: A server-only backup plugin
+permissions:
+  neobackup.admin:
+    description: Allows using /neobackup commands
+    default: op
