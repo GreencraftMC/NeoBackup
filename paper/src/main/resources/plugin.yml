@@ -1,5 +1,5 @@
 name: NeoBackup
-version: 1.0.0
+version: 1.1.0
 main: ms.maomer.neobackup.NeoBackup
 api-version: '1.26'
 author: maomer

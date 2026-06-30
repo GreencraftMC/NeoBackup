@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="neobackup"
-version="1.0.0"
+version="1.1.0"
 displayName="NeoBackup"
 authors="maomer"
 description='''
